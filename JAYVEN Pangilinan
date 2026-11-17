@@ -1,0 +1,117 @@
+print("==========================================")
+print("          PYTHON GAME CENTER")
+print("==========================================")
+print("Welcome to Python Game Center!")
+print("Learn Python while playing!")
+print("------------------------------------------")
+
+score = 0
+
+while True:
+    print("\nSELECT A GAME:")
+    print("[1] Introduction to Computing")
+    print("[2] Basic Syntax")
+    print("[3] Arithmetic Operators")
+    print("[4] Input and Output")
+    print("[5] Conditional Statements")
+    print("[6] Logical Operators")
+    print("[7] Iteration and Loops")
+    print("[8] Exit")
+
+    choice = input("\nChoose your lesson: ")
+
+    if choice == "1":
+        questions = [
+            ("Who created Python?",
+             ["A. Bill Gates", "B. Guido van Rossum",
+              "C. Mark Zuckerberg"], "B"),
+            ("What is a programming language?",
+             ["A. A computer game", "B. A special language for computers",
+              "C. A website"], "B")
+        ]
+
+    elif choice == "2":
+        questions = [
+            ("Which function displays output?",
+             ["A. input()", "B. print()", "C. int()"], "B"),
+            ("What symbol is used for comments?",
+             ["A. #", "B. @", "C. $"], "A")
+        ]
+
+    elif choice == "3":
+        questions = [
+            ("What is 10 + 5?",
+             ["A. 10", "B. 15", "C. 20"], "B"),
+            ("What operator is used for multiplication?",
+             ["A. +", "B. /", "C. *"], "C")
+        ]
+
+    elif choice == "4":
+        questions = [
+            ("Which function accepts user input?",
+             ["A. input()", "B. print()", "C. type()"], "A"),
+            ("What is the default data type of input()?",
+             ["A. int", "B. str", "C. float"], "B")
+        ]
+
+    elif choice == "5":
+        questions = [
+            ("Which keyword checks a condition?",
+             ["A. if", "B. print", "C. input"], "A"),
+            ("What keyword is used for an alternative condition?",
+             ["A. break", "B. elif", "C. range"], "B")
+        ]
+
+    elif choice == "6":
+        questions = [
+            ("Which operator requires both conditions to be True?",
+             ["A. or", "B. not", "C. and"], "C"),
+            ("Which operator reverses a Boolean result?",
+             ["A. not", "B. and", "C. or"], "A")
+        ]
+
+    elif choice == "7":
+        questions = [
+            ("Which loop repeats while a condition is True?",
+             ["A. if", "B. while", "C. else"], "B"),
+            ("Which keyword stops a loop?",
+             ["A. break", "B. print", "C. input"], "A")
+        ]
+
+    elif choice == "8":
+        print("\nThank you for playing!")
+        print("Final Score:", score)
+        break
+
+    else:
+        print("Invalid choice! Please choose 1-8.")
+        continue
+
+    print("\n==========================================")
+    print("              START QUIZ")
+    print("==========================================")
+
+    lesson_score = 0
+
+    for question, options, answer in questions:
+        print("\n" + question)
+
+        for option in options:
+            print(option)
+
+        user_answer = input("Your answer: ").upper()
+
+        if user_answer == answer:
+            print("CORRECT! Great job!")
+            score += 1
+            lesson_score += 1
+        else:
+            print("WRONG! Correct answer:", answer)
+
+    print("\n==========================================")
+    print("             LESSON RESULTS")
+    print("==========================================")
+    print("Lesson Score:", lesson_score, "/ 2")
+    print("Total Score:", score)
+    print("Keep learning Python!")
+    print("==========================================")
