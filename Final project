@@ -1,0 +1,147 @@
+
+score = 0
+
+lessons = [
+    {
+        "title": "INTRODUCTION TO COMPUTING",
+        "explanation": "Computing is the use of computers to process information and solve problems.",
+        "example": "Example: Computers, laptops, and smartphones.",
+        "question": "What is used to process information?",
+        "choices": ["A. Computer", "B. Chair", "C. Table"],
+        "answer": "A"
+    },
+    {
+        "title": "BASIC SYNTAX",
+        "explanation": "Syntax refers to the rules used when writing Python code.",
+        "example": 'print("Hello World")',
+        "question": "Which command displays output?",
+        "choices": ["A. input()", "B. print()", "C. int()"],
+        "answer": "B"
+    },
+    {
+        "title": "ARITHMETIC OPERATORS",
+        "explanation": "Arithmetic operators are used for mathematical calculations.",
+        "example": "10 + 5 = 15",
+        "question": "What is the symbol for multiplication?",
+        "choices": ["A. +", "B. -", "C. *"],
+        "answer": "C"
+    },
+    {
+        "title": "INPUT AND OUTPUT",
+        "explanation": "input() receives information while print() displays information.",
+        "example": 'name = input("Enter name: ")\nprint(name)',
+        "question": "Which function receives user information?",
+        "choices": ["A. print()", "B. input()", "C. range()"],
+        "answer": "B"
+    },
+    {
+        "title": "CONDITIONAL STATEMENTS",
+        "explanation": "Conditional statements allow a program to make decisions using if, elif, and else.",
+        "example": 'if age >= 18:\n    print("Adult")\nelse:\n    print("Minor")',
+        "question": "Which keyword is used when a condition is true?",
+        "choices": ["A. if", "B. for", "C. while"],
+        "answer": "A"
+    },
+    {
+        "title": "LISTS",
+        "explanation": "A list stores multiple values in one variable.",
+        "example": 'fruits = ["Apple", "Mango", "Banana"]',
+        "question": "Which brackets are used to create a list?",
+        "choices": ["A. ( )", "B. [ ]", "C. { }"],
+        "answer": "B"
+    },
+    {
+        "title": "LOOPS",
+        "explanation": "Loops repeat a block of code multiple times.",
+        "example": "for x in range(3):\n    print(x)",
+        "question": "Which loop repeats while a condition is true?",
+        "choices": ["A. if", "B. else", "C. while"],
+        "answer": "C"
+    }
+]
+
+print("======================================")
+print("          PYTHON TUTORIAL")
+print("======================================")
+print("Welcome! Learn Python through 7 lessons.")
+print("First: Explanation | Last: Quiz")
+
+while True:
+    print("\n========== MAIN MENU ==========")
+
+    for i, lesson in enumerate(lessons, 1):
+        print(f"[{i}] Lesson {i}: {lesson['title']}")
+
+    print("[8] FINAL QUIZ")
+    print("[9] EXIT")
+
+    choice = input("\nChoose an option (1-9): ")
+
+    if choice in ["1", "2", "3", "4", "5", "6", "7"]:
+        lesson = lessons[int(choice) - 1]
+
+        print("\n================================")
+        print("LESSON", choice, "-", lesson["title"])
+        print("================================")
+
+        print("\nEXPLANATION:")
+        print(lesson["explanation"])
+
+        print("\nEXAMPLE:")
+        print(lesson["example"])
+
+        input("\nPress ENTER to continue to the quiz...")
+
+        print("\nQUIZ:")
+        print(lesson["question"])
+
+        for option in lesson["choices"]:
+            print(option)
+
+        answer = input("Your answer: ").upper()
+
+        if answer == lesson["answer"]:
+            print("Correct! Great job!")
+        else:
+            print("Incorrect!")
+            print("Correct answer:", lesson["answer"])
+
+        input("\nPress ENTER to return to Main Menu...")
+
+    elif choice == "8":
+        score = 0
+        print("\n========== FINAL QUIZ ==========")
+
+        for i, lesson in enumerate(lessons, 1):
+            print(f"\nQuestion {i}: {lesson['question']}")
+
+            for option in lesson["choices"]:
+                print(option)
+
+            answer = input("Your answer: ").upper()
+
+            if answer == lesson["answer"]:
+                print("Correct!")
+                score += 1
+            else:
+                print("Wrong! Correct answer:", lesson["answer"])
+
+        print("\n========== QUIZ RESULT ==========")
+        print("Your Score:", score, "/ 7")
+
+        if score >= 6:
+            print("Excellent! You are a Python expert!")
+        elif score >= 4:
+            print("Good job! Keep practicing!")
+        else:
+            print("Keep studying and try again!")
+
+        input("\nPress ENTER to return to Main Menu...")
+
+    elif choice == "9":
+        print("\nThank you for learning Python!")
+        print("Keep practicing. Goodbye!")
+        break
+
+    else:
+        print("Invalid choice! Please choose 1 to 9.")
